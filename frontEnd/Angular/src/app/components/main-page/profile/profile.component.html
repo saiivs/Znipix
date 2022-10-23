@@ -1,0 +1,143 @@
+<!--
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <div style="height: 14rem;margin-top: 7rem;" fxLayoutAlign="center "  fxFlex="100%" >
+      <img id="profile_pic" src="../../../assets/img/ktu image.jpg" alt="profile_pic">
+    </div>
+    <div class="px-3" fxFlex="80%">
+      <strong>NAME</strong>
+    </div>
+    <div style="background-color: #385055;height: 8rem;" fxFlex="80%" class="rounded">
+      <div fxFlex="15%" class="upload_btn">
+        <div>
+          <h4 class="text-white">About Me: dkfhdfhdkfjh</h4>
+          <button mat-raised-button (click)="upload()" >Upload</button>
+        </div>
+
+      </div>
+      <div class="pro_btn" fxFlex="11%">
+        <button  mat-raised-button >Edit</button>
+        <button  mat-raised-button >Followers</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div fxLayout="row wrap" style="margin-top: 1rem;margin-left: 8rem;" [hidden]="show">
+
+
+    <div style="display: flex;flex-direction: column;padding-left: 2rem;row-gap: 9px;">
+
+      <strong for="image">upload an image</strong>
+      <input  type="file" (change)="imageFile($event)"  size="50">
+      <input  type="text" name="caption" style="height: 4rem;border-radius: 0.5rem;" #caption>
+      <button id="upload"  mat-raised-button (click)="image()" >UPLOAD</button>
+
+    </div>
+
+  <div fxLayout="column wrap"  mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="close()">X</button>
+  </div>
+  <div>
+    <img id="preview" [src]="filePath" alt="">
+  </div>
+  </div>
+
+  <div fxLayout="row wrap" class="mt-4"  fxLayoutAlign="center">
+    <div fxFlex="80%"  fxLayout="row wrap" fxLayoutGap="6%">
+      <div *ngFor="let pics of afterUpload" fxFlex="19%">
+        <img id="profile_uploads" src="http://localhost:3000/images/{{pics._id}}.jpg" alt="">
+        <div style="height: 1.5rem;"></div>
+      </div>
+
+    </div>
+  </div> -->
+
+<div fxLayout="row wrap">
+  <div fxFlex="100%" class="profile">
+    <div class="profile_box rounded" fxFlex="30%">
+      <div fxLayoutAlign="start center" fxLayout="column wrap">
+        <img id="pro_pic" [src]="profileImg" alt="" />
+        <h2 style="height: 12px">{{userDetails?.userName}}</h2>
+        <p>hey how are you</p>
+        <div>
+          <p class="follow_count fw-bold">256</p>
+          <label for="">Followers</label>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="2%"></div>
+
+    <div class="profile_box rounded" fxFlex="66%">
+
+
+          <div class="edit_form">
+        <div>
+
+          <label for="name">Name &nbsp;:</label>
+          <input type="text" class="rounded fw-bold" name="name"  value="{{userDetails?.userName}}" />
+          <!-- &nbsp;<span *ngIf="!reactiveForm?.get('name')?.valid && reactiveForm?.get('name')?.touched" ><mat-icon>report</mat-icon>Enter a valid name</span> -->
+        </div>
+        <div>
+          <label for="name">Email &nbsp;:</label>
+          <input type="text" class="rounded fw-bold" name="email"  value="{{userDetails?.email}}"  />
+          <!-- &nbsp;<span *ngIf="!reactiveForm?.get('email')?.valid&&reactiveForm?.get('email')?.touched" ><mat-icon>report</mat-icon>Enter a valid email</span> -->
+        </div>
+        <div>
+          <label for="name">Phone &nbsp;:</label>
+          <input type="text" class="rounded fw-bold" name="phone"  value="{{userDetails?.phone}}"  />
+          <!-- &nbsp;<span *ngIf="!reactiveForm?.get('phone')?.valid&&reactiveForm?.get('phone')?.touched" ><mat-icon>report</mat-icon>Enter a valid number</span> -->
+        </div>
+        <div>
+          <label for="name">About me &nbsp;:</label>
+          <input type="text" class="rounded" name="about" value="Name" />
+        </div>
+        <div class="Save_edit">
+
+          <button mat-raised-button (click)="upload()" >Upload post</button>
+          <app-dilog-edit></app-dilog-edit>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div  fxLayout="row wrap" class="mt-1 slow" fxFlex="100%" [hidden]="show">
+    <div fxFlex="30%"></div>
+  <div fxFlex="3%"></div>
+  <div fxFlex="30%" class="Upload rounded">
+   <div fxFlex="45%" fxLayoutAlign="center center" >
+      <div  *ngIf="filePath;else preview"><img style="height: 6rem;" [src]="filePath" alt=""></div>
+      <ng-template #preview>
+          <p class="text-white">No image selected</p>
+      </ng-template>
+   </div>
+   <div fxFlex="55%" class="uploadImage">
+      <strong class="text-white">UPLOAD IMAGE</strong>
+      <input class="text-white"  type="file" (change)="imageFile($event)">
+      <input id="textField"  type="text" name="caption" #caption>
+      <button mat-raised-button class="mt-1" (click)="image()" >UPLOAD</button>
+   </div>
+   <div>
+    <a class="text-white" >
+      <mat-icon style="cursor: pointer;" (click)="close()">clear</mat-icon>
+    </a>
+   </div>
+  </div>
+  </div>
+
+  <div class="pictures" fxLayout="row wrap" fxFlex="80%" fxLayoutGap="40px"  >
+    <ng-container *ngIf="afterUpload.length!=0;else noProfilePics">
+      <div *ngFor="let pics of afterUpload" style="height: 8rem;border: 1px solid black;" fxFlex="16%">
+        <img id="img" src="http://localhost:3000/images/{{pics._id}}.jpg" alt="">
+      </div>
+    </ng-container>
+    <ng-template #noProfilePics>
+      <div fxFlex="100%" fxLayoutAlign="center center">
+        <h3 id="noPost" >No Posts</h3><span><img style="height: 10rem;" src="../../../../assets/img/empty-folder (1).png" alt=""></span>
+      </div>
+
+    </ng-template>
+
+  </div>
+
+</div>

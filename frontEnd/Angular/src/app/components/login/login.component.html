@@ -1,0 +1,39 @@
+<div class="bg-img">
+  <div class="logo-bar"><img src="../../../assets/img/logo_white_2.png" alt="logo" id="logo_z"><p class="text-white znipix">Znipix</p></div>
+  <div class="login-box rounded">
+    <div class="head-clr container-fluid mat-display-1 fw-bold mb-2 ml-2">Welcome Back</div>
+    <p class="container-fluid mat-subheading" id="subhead-clr">welcome back! Please enter your details</p>
+
+    <form class="inline" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+        <div class="input-icons container">
+          <i class="fa fa-envelope icon"></i>
+          <input class="input-field text-white"  placeholder="email" type="text" name="email" required email ngModel #email="ngModel" ><br>
+          <div>
+            <small class="text-warning" *ngIf="!email.value && email.touched else invalidEmail">This field is required*</small>
+        </div>
+        <ng-template #invalidEmail>
+          <small *ngIf="email.invalid && email.touched" class="text-warning">Enter a valid email*</small>
+      </ng-template>
+          <i id="lock" class="fa fa-lock icon"></i>
+              <input id="pass" class="input-field text-white" placeholder="password" type="text" required name="password" ngModel #password="ngModel" >
+              <div>
+                <small class="text-warning" *ngIf="!password.value && password.touched">This field is required*</small>
+            </div>
+              <button type="submit" class="text-white" [disabled]="!loginForm.valid" mat-raised-button >LOG IN</button>
+              <div style="display: flex;flex-direction: row;margin-top: 1rem;justify-content: center;column-gap: 2px;">
+                <div>
+                  <asl-google-signin-button mat-raised-button id="google_button" ></asl-google-signin-button>
+                </div>
+                <div>
+                  <p style="color: white;padding-top: 5px;" >LOGIN WITH GOOGLE</p>
+                </div>
+              </div>
+
+              <p class="mat-caption" id="caption">Do you have an account?<a routerLink="sign_up" class="text-success pe-auto fw-bold">Register</a></p>
+              <div>
+                <h4 class="text-warning" *ngIf="userExistError" >{{userExistError}}</h4>
+              </div>
+        </div>
+    </form>
+  </div>
+</div>

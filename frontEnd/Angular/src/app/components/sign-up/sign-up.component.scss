@@ -1,0 +1,68 @@
+.sign-up{
+  background-image: url(../../../assets/img/camera_wall.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  height: 99vh;
+  width: 100%;
+  position: relative;
+
+  .login-box{
+      position: absolute;
+      height: 65%;
+      width: 30%;
+      top: 8rem;
+      left: 35%;
+      background: rgba(0, 0, 0, 0.5);
+
+      .errorMsg{
+        margin-left: 2rem;
+      }
+      .head-cap{
+          margin-top: 0.5rem;
+          margin-left: 2.1rem;
+          font-size: x-large;
+      }
+
+      .inline{
+          max-width:400px;
+          margin:auto;
+
+          .input-icons i {
+              position: absolute;
+          }
+          .input-icons {
+
+              width: 100%;
+              margin-bottom: 10px;
+
+              .icon {
+                  padding: 10px;
+                  min-width: 40px;
+              }
+
+              .input-field {
+                  background-color: rgb(200, 198, 198);
+                  width: 100%;
+                  padding: 10px;
+                  text-align: center;
+                  margin-bottom: 3px;
+                  background: rgba(46, 46, 46, 0.3);
+                  border-radius: 9px;
+              }
+
+              input.ng-invalid.ng-touched{
+                border: red 1px solid;
+              }
+
+              #register{
+                  background-color: #256D85;
+                  width: 100%;
+                  margin-top: 2rem;
+                  height: 3rem;
+              }
+          }
+      }
+
+}
+}

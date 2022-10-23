@@ -1,0 +1,68 @@
+<div fxLayout="row wrap" class="postMain">
+  <div *ngFor="let post of posts; index as i" fxFlex="60%" class="post">
+    <div class="userinfo">
+      <div fxFlex="10%">
+        <img
+          class="profile_pic"
+          src="../../../assets/img/sai ktu.jpg"
+          alt="profile_pic"
+        />
+      </div>
+      <div fxFlex="40%">
+        <div class="fw-bold">{{ post.name.userName }}</div>
+        <div class="mat-caption">{{ post.caption }}</div>
+      </div>
+      <div fxFlex="30%"></div>
+      <div fxFlex="20%">
+        <button id="follow" mat-raised-button>follow</button>
+      </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+      <img
+        class="userpost"
+        src="http://localhost:3000/images/{{ post._id }}.jpg"
+        alt=""
+      />
+    </div>
+    <div fxLayout="row wrap">
+      <mat-icon
+        class="heart"
+        [ngStyle]="{ color: post.liked ? 'red' : 'white' }"
+        (click)="favorite(post._id, i)"
+        >favorite</mat-icon
+      >
+      <div class="heart_count">{{ post.count?.length || 0 }}</div>
+      <mat-icon id="comment">comment</mat-icon>
+      <div id="comment_count">{{ post.comments?.length }}</div>
+    </div>
+    <div id="see_more">
+      <a (click)="toggleText(i)">{{
+        post.item ? "Show comments.." : "Show less.."
+      }}</a>
+    </div>
+    <div fxLayout="column wrap" *ngIf="!post.item" class="commentPos">
+      <div fxLayout="row wrap" class="comment_box">
+        <input type="text" [(ngModel)]="comment" />&nbsp;
+        <label
+          style="padding-top: 5px"
+          (click)="postComment(i, post._id)"
+          class="fw-bold"
+          for=""
+          >Post</label
+        >
+      </div>
+      <div *ngFor="let cmnt of post.comments" class="mb-2" fxLayout="row wrap">
+        <div class="spaceBar"></div>
+        <img
+          class="comment_pic"
+          src="../../../assets/img/sai ktu.jpg"
+          alt=""
+        />&nbsp; <strong>{{ cmnt.userName }}</strong
+        >&nbsp;
+        <p>{{ cmnt.comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

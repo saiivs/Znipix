@@ -1,0 +1,88 @@
+.homeBg{
+  background-image: url(../../../assets/img/camera.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+ .homeCap{
+  height: 18rem;
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  margin-left: 1rem;
+  border-radius: 12px;
+  padding: 3rem;
+  padding-top: 7rem;
+  color: white;
+
+  .homeCapFont{
+    font-family: monospace;
+  }
+
+  #capImg{
+    width: 5rem;
+    padding-bottom: 3rem;
+  }
+ }
+}
+
+.HomeSection2{
+height: 15rem;
+padding-left: 2rem;
+align-items: center;
+background-color: #256D85;
+
+color: rgb(255, 255, 255);
+
+#homeCap2{
+font-family: monospace;
+}
+
+.camClass{
+
+
+
+#cam{
+  height: 14rem;
+  border-radius: 12px;
+}
+}
+
+
+}
+
+
+@media only screen and (max-width: 800px){
+  .homeCapFont{
+    font-size: larger;
+    line-height: 1.4rem;
+  }
+}
+@media only screen and (max-width: 376px){
+  .homeCapFont{
+    font-size: larger;
+    line-height: 1.4rem;
+  }
+  #capImg{
+    width: 1rem;
+    padding-bottom: 3rem;
+  }
+  .homeCap{
+    margin-right: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 956px){
+  #homeCap2{
+    font-size: larger;
+    line-height: 20px;
+  }
+}
+
+@media only screen and (max-width: 495px){
+  #homeCap2{
+    font-size: small;
+  }
+
+
+}

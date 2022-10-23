@@ -1,0 +1,109 @@
+#upload{
+  background-color: black;
+  color: white;
+  margin-top: 1rem;
+  width: 9rem;
+  margin-left: 2rem;
+  position: sticky;
+ }
+
+ .postMain{
+  margin-top: 8rem;
+
+  .changeColor{
+    background-color: red;
+  }
+ .post{
+  margin-top: 1.5rem;
+  background-color: #A5C9CA;
+  margin-left: 2rem;
+  box-shadow: -4px 4px 3px 2px rgba($color: #201f1f, $alpha: 0.5);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+
+  .userpost{
+    width: 44rem;
+    height: 22rem;
+    margin-left: 6rem;
+    border-radius: 0.5rem;
+   }
+
+   .heart{
+    margin-left: 10rem;
+    margin-top: 1rem;
+   }
+
+   .heart_count{
+    margin-top: 1rem;
+    margin-left: 0.2rem;
+   }
+
+   #comment_count{
+    margin-top: 1rem;
+    margin-left: 0.2rem;
+   }
+
+   #comment{
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+   }
+
+   #see_more{
+    margin-left: 10rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+   }
+
+   .commentPos{
+    margin-left: 10rem;
+    margin-top: 1rem;
+
+    .comment_box{
+      margin-bottom: 1rem;
+    }
+
+    .comment_box input{
+      border-radius: 6px;
+      height: 2rem;
+    }
+   }
+
+   .comment_pic{
+    width: 1.5rem;
+    border-radius: 12px;
+   }
+
+   .spaceBar{
+    height: 1rem;
+   }
+
+  .userinfo{
+  margin-top: 1rem;
+  margin-left: 5rem;
+
+  .profile_pic{
+  border-radius: 24px;
+  width: 3rem;
+ }
+
+  #follow{
+    background-color: black;
+    color: white;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 24px;
+ }
+
+ }
+
+ }
+ .posts{
+  height: 34rem;
+  margin-top: 1.5rem;
+  background-color: #fcf1f4;
+  margin-left: 2rem;
+  box-shadow: -4px 4px 3px 2px rgba($color: #d2bcbc, $alpha: 1.0);
+  border-radius: 0.5rem;
+ }
+
+}

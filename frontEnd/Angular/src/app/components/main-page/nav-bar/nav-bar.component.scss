@@ -1,0 +1,65 @@
+
+ .menuBar{
+  height: 7rem;
+  background-color: #385055;
+  position: fixed;
+  width: 100%;
+  margin-top: 7rem;
+  z-index: 1;
+
+  .Znipix{
+    position: relative;
+  }
+
+  #logo{
+    width: 12rem;
+  }
+
+  #logo1{
+    width: 7rem;
+  }
+
+  .logoName{
+    position: absolute;
+    color: white;
+    font-size: xx-large;
+    font-family: monospace;
+    top: 3rem;
+    left: 8rem;
+  }
+
+  .logoName1{
+    position: absolute;
+    color: white;
+    font-size: large;
+    font-family: monospace;
+    top: 2rem;
+    left: 5rem;
+    font-weight: 800;
+  }
+
+  .navButtons{
+    display: flex;
+    gap: 3rem;
+  }
+
+  .navButtons button {
+    border-radius: 12px;
+    background-color: #256D85;
+    color: white;
+  }
+
+  #logOut{
+    background-color: black;
+  }
+
+  #menuButton{
+    color: white;
+  }
+  .active{
+    background-color: white;
+    color: black;
+  }
+ }
+
+

@@ -1,0 +1,111 @@
+<div fxLayout="column wrap" fxFlex="100%" >
+  <div>
+    <div fxLayout="row wrap" fxFlex="98%" class="contest_banner"  fxLayoutAlign=" center" >
+    <div class="contest_img_container" fxFlex="20%" fxLayoutAlign="center center" >
+      <img id="trophy" src="../../../../assets/img/trophy (1).png" alt="">
+    </div>
+    <div class="contest_text"  fxFlex="70%">
+      <h1>Welcome to the contest!</h1>
+      <p>Lets find out the ever time briliant and creative photographer and his master piece. Be the sponsor for
+        conducting the contest & lets make a remarkable reward to the best voted art.</p>
+        <p>We will be helping you to specify the rules & regulations, rewards for the candidates </p>
+    </div>
+  </div>
+  </div>
+  <div>
+      <div fxFlex="98%" class="black_line"></div>
+  </div>
+  <div>
+    <div fxLayout="row wrap" class="mb-4">
+      <div fxFlex="50%" fxLayoutAlign="center " class="rounded" style="background-color:  #A5C9CA;height: 8rem;margin-left: 1rem;margin-top: 1rem;height: auto;">
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" class="contest_field">
+          <h1 class="contest_title" >Create Contest</h1>
+          <div class="first_second">
+            <mat-form-field appearance="outline">
+            <mat-label  >Contest name</mat-label>
+            <input matInput placeholder="Type here" formControlName="contestName">
+            <mat-error *ngIf="!reactiveForm.get('contestName')?.valid">Required field</mat-error>
+          </mat-form-field>
+            <mat-form-field appearance="outline">
+            <mat-label>Sponser name</mat-label>
+            <input matInput placeholder="Type here" formControlName="sponserName" >
+            <mat-error *ngIf="!reactiveForm.get('sponserName')?.valid">Required field</mat-error>
+          </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="remaining_field" appearance="fill">
+              <mat-label>Rules & Instructions</mat-label>
+              <textarea matInput formControlName="rulesInstrutions"></textarea>
+              <mat-error *ngIf="!reactiveForm.get('rulesInstrutions')?.valid" >Required field</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="remaining_field" appearance="outline">
+            <mat-label>1st Price</mat-label>
+            <input matInput placeholder="₹" formControlName="firstPrice">
+            <mat-error *ngIf="!reactiveForm.get('firstPrice')?.valid" >Required field</mat-error>
+          </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="remaining_field" appearance="outline">
+            <mat-label>2nd Price</mat-label>
+            <input matInput placeholder="₹" formControlName="secondPrice" >
+            <mat-error *ngIf="!reactiveForm.get('secondPrice')?.valid" >Required field</mat-error>
+          </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="remaining_field" appearance="outline">
+            <mat-label>3rd Price</mat-label>
+            <input matInput placeholder="₹" formControlName="thirdPrice" >
+            <mat-error *ngIf="!reactiveForm.get('thirdPrice')?.valid" >Required field</mat-error>
+          </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="remaining_field" appearance="outline">
+            <mat-label>End date</mat-label>
+            <input type="date" matInput placeholder="Type here" formControlName="date">
+            <mat-error *ngIf="reactiveForm.get('date')?.errors?.['invalidDate']" >Invalid date</mat-error>
+          </mat-form-field>
+          </div>
+          <button class="remaining_field mb-5" id="create" mat-raised-button [disabled]="!reactiveForm.valid" >CREATE</button>
+      </form>
+     </div>
+     <div fxFlex="30%" fxLayout="column wrap"   class="contest_list rounded" >
+       <div fxFlex="7%" >
+        <h2 style="font-family: serif;
+        font-weight: bolder;" >Contest</h2>
+       </div>
+       <div fxflex="30%">
+        <mat-form-field appearance="outline">
+          <mat-label>Search here</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+       </div>
+       <ng-container *ngIf="contests.length!=0;else NoContest" >
+         <div fxFlex="15%" *ngFor="let contest of contests" class="rounded" style=" background-color: #256D85;margin-bottom: 4px;">
+           <div fxFlex="20%" style="position: relative;">
+              <img class="contest_img" src="../../../../assets/img/ktu image.jpg" alt="">
+           </div>
+           <div class="text-white" fxFlex="40%" >
+              <h2 style="padding-top: 1rem;
+              height: 2rem;" >{{contest.contestName}}</h2>
+              <p>{{contest.sponserName}}</p>
+           </div>
+           <div fxFlex="40%"  style="padding-left: 3rem;padding-top: 1rem;">
+              <button mat-raised-button routerLink="/newfeeds/contest-details/{{contest._id}}" >JOIN</button>
+              <p class="text-white">{{contest.date}}</p>
+           </div>
+       </div>
+       </ng-container>
+       <ng-template #NoContest fxFlex="15%" style="color: black;margin-bottom: 4px" >
+          <strong>No Contest to show</strong><span><img style="height: 10rem;" src="../../../../assets/img/empty-folder (1).png" alt=""></span>
+       </ng-template>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+
+

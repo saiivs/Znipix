@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Edit profile here</h1>
+<form class="example-form" fxLayout="column wrap" [formGroup]="reactiveForms" (ngSubmit)="onSave()">
+  <label for="profile_image" >Choose your profile pic</label>
+  <input type="file" #profile_image (change)="image($event)">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput
+           formControlName="name" >
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput
+           placeholder="{{userDetails.email}}" formControlName="email" >
+    <mat-error *ngIf="!reactiveForms.get('email')?.valid&&reactiveForms.get('email')?.touched">
+      Please enter a valid email address
+    </mat-error>
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input type="tel" matInput
+           placeholder="{{userDetails.phone}}" formControlName="phone" >
+    <mat-error *ngIf="reactiveForms.get('phone')?.touched&&!reactiveForms.get('phone')?.valid">
+      Please enter a valid phone number
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button type="submit" >Save</button>
+
+  <button mat-raised-button class="mt-2" mat-dialog-close >Close</button>
+</form>

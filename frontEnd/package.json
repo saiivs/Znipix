@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/cli": "^14.2.4",
+    "mongoose": "^6.6.2"
+  }
+}

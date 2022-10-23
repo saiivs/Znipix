@@ -1,0 +1,60 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center">
+  <div class="menuBar" fxFlex="100%" fxflex.sm="100%" fxFlex.xs="100%" fxLayoutAlign=" center">
+  <div fxHide.xs class="Znipix">
+    <span class="logoName">Znipix</span>
+    <img id="logo" src="../../../assets/img/logo_white_2.png" alt="logo">
+  </div>
+  <div fxHide fxShow.xs class="Znipix">
+    <span class="logoName1">Znipix</span>
+    <img id="logo1" src="../../../assets/img/logo_white_2.png" alt="logo">
+  </div>
+  <div fxFlex="30%" fxHide.xs fxHide.sm></div>
+  <div fxFlex="70%" fxHide.lg></div>
+  <div fxHide.xs fxFlex="70%" fxHide.sm class="navButtons">
+    <button mat-raised-button (click)="home()">Home</button>
+    <button (click)="navigateToNewfeeds()" routerLink="newfeeds" mat-raised-button>New Feeds</button>
+    <button mat-raised-button routerLink="/newfeeds/contest">Contest</button>
+    <button mat-raised-button>Message</button>
+    <button mat-raised-button [matMenuTriggerFor]="menu">{{logedName}}</button>
+    <mat-menu #menu="matMenu">
+      <button (click)="navigateToProfile()"  routerLink="newfeeds/userProfile" mat-menu-item>
+        <mat-icon>person</mat-icon>Profile
+      </button>
+      <button mat-menu-item>
+        <mat-icon> monetization_on</mat-icon>Wallet
+      </button>
+    </mat-menu>
+    <button id="logOut" (click)="logOut()" mat-raised-button>Log Out</button>
+  </div>
+  <div fxHide.lg fxHide.xl fxHide.md fxLayout="wrap">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon style="color: white;">person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button routerLink="profile" mat-menu-item>
+        <mat-icon>person</mat-icon>Profile
+      </button>
+      <button mat-menu-item>
+        <mat-icon> monetization_on</mat-icon>Wallet
+      </button>
+    </mat-menu>
+    <button id="menuButton" mat-button [matMenuTriggerFor]="menu1">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item>Home</button>
+      <button mat-menu-item>News Feed</button>
+      <button mat-menu-item>contest</button>
+      <button mat-menu-item>Message</button>
+      <button mat-menu-item>Wallet</button>
+      <button mat-menu-item>Log Out</button>
+    </mat-menu>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
